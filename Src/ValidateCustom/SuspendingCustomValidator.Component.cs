@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace BizTalkComponents.PipelineComponents.ValidateCustom
 {
-    public partial class SuspendingValidator
+    public partial class SuspendingCustomValidator
     {
-        public string Name { get { return "SuspendingValidator"; } }
+
+        public string Name { get { return "SuspendingCustomValidator"; } }
         public string Version { get { return "1.0"; } }
-        public string Description { get { return "This component is used to validate a specific value from an incomming xml message with regular expression."; } }
+        public string Description { get { return "This component is used to validate a specific value from an incomming xml message."; } }
 
         public void InitNew() { }
 
@@ -41,7 +42,8 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom
 
         public void GetClassID(out Guid classid)
         {
-            classid = new Guid("8EB8F095-9486-430C-9442-E5B8A524367D");
+            classid = new Guid("1CD10318-CF64-48D0-A1B8-E3E5EA4AC7D8");
         }
+
     }
 }

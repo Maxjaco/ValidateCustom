@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>OBOS.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.BizTalk.GlobalPropertySchemas, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.BizTalk.Pipeline, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -61,12 +67,16 @@
     <Compile Include="IMessageReader.cs" />
     <Compile Include="IValidator.cs" />
     <Compile Include="RegExValidator.cs" />
-    <Compile Include="SuspendingValidator.cs" />
-    <Compile Include="SuspendingValidator.Component.cs" />
+    <Compile Include="SuspendingRegExValidator.cs" />
+    <Compile Include="SuspendingRegExValidator.Component.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuspendingCustomValidator.Component.cs" />
+    <Compile Include="SuspendingCustomValidator.cs" />
     <Compile Include="XmlMessageReader.cs" />
+    <Compile Include="XpathValidator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OBOS.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

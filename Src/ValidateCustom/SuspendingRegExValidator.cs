@@ -16,7 +16,7 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom
     [ComponentCategory(CategoryTypes.CATID_PipelineComponent)]
     [ComponentCategory(CategoryTypes.CATID_Any)]
     [Guid("903CA73C-70FD-4F72-A2A3-B9EC6213029A")]
-    public partial class SuspendingValidator : IComponent, IBaseComponent, IComponentUI, IPersistPropertyBag
+    public partial class SuspendingRegExValidator : IComponent, IBaseComponent, IComponentUI, IPersistPropertyBag
     {
         private readonly IMessageReader _reader = null;
         private readonly IValidator _validator = null;
@@ -36,7 +36,7 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom
 
 
 
-        public SuspendingValidator()
+        public SuspendingRegExValidator()
         {
             _reader = new XmlMessageReader();
             _validator = new RegExValidator();
