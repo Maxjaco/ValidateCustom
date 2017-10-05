@@ -7,20 +7,18 @@ using Winterdom.BizTalk.PipelineTesting;
 namespace BizTalkComponents.PipelineComponents.ValidateCustom.Tests.UnitTests
 {
     [TestClass]
-    
     public class SuspendingRegExValidatorTests
     {
         [TestMethod]
-        //[ExpectedException(typeof(Exception))]
-        public void SuspendingRegExTestBadXpath()
+        [ExpectedException(typeof(Exception))]
+        public void SuspendingRegExTestBadXPath()
         {
 
             var pipeline = PipelineFactory.CreateEmptyReceivePipeline();
             var component = new SuspendingRegExValidator
                 {
-                ///*[local-name()='MDM_KUNDE_TELEFON_RESPONSE']/*[local-name()='Success']/*[local-name()='ResultSets']/*[local-name()='Table1']/@*[local-name()='RETURKODE']
-                Xpath = "/*[local-name()='MDM_KUNDE_TELEFON_RESPONSE']/Success/ResultSets/Table1[@RETURKODE]",
-                Regex = @"^(?>\s*)\d*(?>\s*$)"
+                Xpath = "/*[local-name()='MDM_KUNDE_TELEFON_RESPONSE']/Success/ResultSets/Table1/@RETURKODE",
+                Regex = "Whatever"
 
             };
 
@@ -41,7 +39,29 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom.Tests.UnitTests
         }
 
         [TestMethod]
-        public void PassingTest()
+        [ExpectedException(typeof(Exception))]
+        public void SuspendingTestRegExBadValue()
+        {
+            //Only allows digits switch testvalue to digits and the test will pass.
+            var pipeline = PipelineFactory.CreateEmptyReceivePipeline();
+            var component = new SuspendingRegExValidator
+            {
+
+                Xpath = "root/test/level1",
+                Regex = @"TestValueXXX"
+            };
+
+            pipeline.AddComponent(component, PipelineStage.Decode);
+
+            var message = MessageHelper.Create("<root><test><level1>TestValue</level1></test></root>");
+
+            var output = pipeline.Execute(message);
+            //Assert.AreEqual(1, output.Count);
+
+        }
+
+        [TestMethod]
+        public void PassingSimpleTest()
         {
 
             var pipeline = PipelineFactory.CreateEmptyReceivePipeline();
@@ -49,7 +69,7 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom.Tests.UnitTests
             {
 
                 Xpath = "root/test",
-                Regex = "(TestValue)"
+                Regex = "TestValue"
 
             };
 
@@ -64,27 +84,7 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom.Tests.UnitTests
         }
 
 
-        [TestMethod]
-        public void SuspendingTestRegEx()
-        {
-            //Only allows digits switch testvalue to digits and the test will pass.
-            var pipeline = PipelineFactory.CreateEmptyReceivePipeline();
-            var component = new SuspendingRegExValidator
-            {
-
-                Xpath = "root/test/level1",
-                Regex = @"^(?>\s*)\d*(?>\s*$)"
-
-            };
-
-            pipeline.AddComponent(component, PipelineStage.Decode);
-
-            var message = MessageHelper.Create("<root><test><level1>TestValue</level1></test></root>");
-
-            var output = pipeline.Execute(message);
-            //Assert.AreEqual(1, output.Count);
-
-        }
+    
 
 
         [TestMethod]

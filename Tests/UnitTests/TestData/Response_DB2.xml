@@ -1,1 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?><MDM_KUNDE_TELEFON_RESPONSE xmlns="http://INT1003.Kunde.Schemas.DB2"><Success><MDM_KUNDE_TELEFON KUNDENR="1177335" DYN_ID="36555" CHG_ID="2017-09-29 10:05:10.317-97819" TLFTYPE="Mobil" TELEFON="41213256" /><ResultSets><Table1 RETURKODE="OK        " FEILTEKST="                                                  " /></ResultSets></Success></MDM_KUNDE_TELEFON_RESPONSE>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MDM_KUNDE_TELEFON_RESPONSE xmlns="http://INT1003.Kunde.Schemas.DB2">
+  <Success>
+    <MDM_KUNDE_TELEFON KUNDENR="1177335" DYN_ID="36555" CHG_ID="2017-09-29 10:05:10.317-97819" TLFTYPE="Mobil" TELEFON="41213256" />
+    <ResultSets>
+      <Table1 RETURKODE="OK        " FEILTEKST="                                                  " />
+    </ResultSets>
+  </Success>
+</MDM_KUNDE_TELEFON_RESPONSE>

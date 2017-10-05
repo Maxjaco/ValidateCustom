@@ -60,7 +60,7 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom
                 pInMsg.Context.Write(new ContextProperty("SuspendAsNonResumable", "http://schemas.microsoft.com/BizTalk/2003/system-properties"), true);
                 pInMsg.Context.Write(new ContextProperty("SuppressRoutingFailureDiagnosticInfo", "http://schemas.microsoft.com/BizTalk/2003/system-properties"), true);
 
-                throw new Exception(string.Format("{0} is not a valid value for the current node", value));
+                throw new InvalidMessageException(string.Format("{0} is not a valid value for the current node", value));
             }
 
             return pInMsg;

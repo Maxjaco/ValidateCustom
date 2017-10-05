@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BizTalkComponents.PipelineComponents.ValidateCustom
 {
-    class XpathValidator : IValidator
+    [Serializable]
+    public class InvalidMessageException : Exception
     {
-            public bool Validate(string value, string expression)
-            {
-                return true;
-            }     
+        public InvalidMessageException(string message):base(message)
+        {
+
+        }
     }
 }

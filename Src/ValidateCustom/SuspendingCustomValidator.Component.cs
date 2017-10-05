@@ -10,7 +10,6 @@ namespace BizTalkComponents.PipelineComponents.ValidateCustom
 {
     public partial class SuspendingCustomValidator
     {
-
         public string Name { get { return "SuspendingCustomValidator"; } }
         public string Version { get { return "1.0"; } }
         public string Description { get { return "This component is used to validate a specific value from an incomming xml message."; } }

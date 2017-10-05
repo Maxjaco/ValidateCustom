@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestData\Response_DB2.xml" />
+    <Content Include="TestData\simpletest.xml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
